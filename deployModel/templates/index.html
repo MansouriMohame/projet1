@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Prediction</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Signika">
+    <link rel="icon" href="{{ url_for('static', filename='icon.ico') }}" type="image/icon type">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+    background-image: url("img1blue.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1, h2 {
+    text-align: center;
+    color: blanchedalmond;
+}
+
+h1 {
+    font-family: 'Sofia';
+    font-size: 80px;
+    margin-top: 0px;
+    color: aquamarine;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-family: 'Signika';
+    margin-top: 0px;
+    font-size: 30px;
+}
+
+.container {
+    background-color: rgba(103, 96, 145, 0.8);
+    width: 90%;
+    height: auto;
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 45%;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: calc(100% - 22px); /* Largeur ajustée pour les inputs */
+    height: 3rem;
+    border: none;
+    border-radius: 4px;
+    background-color: blanchedalmond;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+label {
+    width: 100%; /* Largeur totale pour les labels */
+    margin-bottom: 5px;
+    color: #555;
+    text-align: center; /* Centrage horizontal du texte */
+}
+
+button[type="submit"] {
+    width: 30%;
+    height: 3rem;
+    font-size: x-large;
+    background-color: aquamarine;
+    border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 30px;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Predict Price</h1>
+        <form action="{{ url_for('predict_price') }}" method="POST" class="form">
+            <div class="row">
+                <label for="CODESITE">Code Site:</label>
+                <input type="text" id="CODESITE" name="CODESITE" class="input" required>
+
+                <label for="LIBSITE">Lib Site:</label>
+                <input type="text" id="LIBSITE" name="LIBSITE" class="input" required>
+
+                <label for="VILLE">Ville:</label>
+                <input type="text" id="VILLE" name="VILLE" class="input" required>
+
+                <label for="CODE_INTERNE_ARTICLE">Code Interne Article:</label>
+                <input type="text" id="CODE_INTERNE_ARTICLE" name="CODE_INTERNE_ARTICLE" class="input" required>
+
+                <label for="CODE_ARTICLE">Code Article:</label>
+                <input type="text" id="CODE_ARTICLE" name="CODE_ARTICLE" class="input" required>
+            </div>
+            <div class="row">
+                <label for="LIBELLE_ARTICLE_x">Libelle Article:</label>
+                <input type="text" id="LIBELLE_ARTICLE_x" name="LIBELLE_ARTICLE_x" class="input" required>
+
+                <label for="LIBFRS">Fournisseur:</label>
+                <input type="text" id="LIBFRS" name="LIBFRS" class="input" required>
+
+                <label for="MARQUE">Marque:</label>
+                <input type="text" id="MARQUE" name="MARQUE" class="input" required>
+
+                <label for="LIB_RAY">Rayon:</label>
+                <input type="text" id="LIB_RAY" name="LIB_RAY" class="input" required>
+
+                <label for="LIB_SSFAM">Sous-famille:</label>
+                <input type="text" id="LIB_SSFAM" name="LIB_SSFAM" class="input" required>
+            </div>
+            <div class="row">
+                <label for="temperature">Température:</label>
+                <input type="number" id="temperature" name="temperature" step="0.01" class="input" required>
+
+                <label for="pluie">Pluie:</label>
+                <input type="number" id="pluie" name="pluie" step="0.01" class="input" required>
+
+                <label for="year">Année:</label>
+                <input type="number" id="year" name="year" class="input" required>
+
+                <label for="month">Mois:</label>
+                <input type="number" id="month" name="month" class="input" required>
+
+                <label for="day">Jour:</label>
+                <input type="number" id="day" name="day" class="input" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
